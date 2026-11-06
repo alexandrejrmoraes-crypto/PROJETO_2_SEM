@@ -8,11 +8,11 @@
 		<version>4.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.estoquei</groupId>
-	<artifactId>estoque</artifactId>
+	<groupId>br.com.threearquitetura</groupId>
+	<artifactId>three-arquitetura</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>Three Arquitetura</name>
+	<description>Sistema web institucional da Three Arquitetura</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -1,13 +1,13 @@
 
-package com.estoquei.estoque;
+package br.com.threearquitetura;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EstoqueApplication {
+public class ThreeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EstoqueApplication.class, args);
+        SpringApplication.run(ThreeApplication.class, args);
     }
 }

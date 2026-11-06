@@ -1,10 +1,10 @@
-package com.estoquei.estoque;
+package br.com.threearquitetura;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EstoqueApplicationTests {
+class ThreeApplicationTests {
 
     @Test
     void contextLoads() {

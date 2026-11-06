@@ -1,5 +1,5 @@
 
-package com.estoquei.estoque;
+package br.com.threearquitetura.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
