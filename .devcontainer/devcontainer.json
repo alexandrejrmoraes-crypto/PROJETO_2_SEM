@@ -1,6 +1,6 @@
 {
   "name": "Three Arquitetura",
-  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
