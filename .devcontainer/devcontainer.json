@@ -1,10 +1,14 @@
 {
   "name": "Three Arquitetura",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
-  "forwardPorts": [8080],
+  "forwardPorts": [
+    8080
+  ],
   "postCreateCommand": "bash .devcontainer/setup.sh",
-  "postStartCommand": "docker compose -f .devcontainer/docker-compose.yml up -d"
+  "postStartCommand": "docker compose -f .devcontainer/docker-compose.yml up -d",
+  "build": {
+    "dockerfile": "Dockerfile"
+  }
 }
