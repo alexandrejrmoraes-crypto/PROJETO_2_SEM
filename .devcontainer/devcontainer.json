@@ -1,0 +1,10 @@
+{
+  "name": "Three Arquitetura",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "docker compose -f .devcontainer/docker-compose.yml up -d"
+}
