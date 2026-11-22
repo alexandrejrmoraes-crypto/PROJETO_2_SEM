@@ -1,7 +1,5 @@
-// ENDEREÇO DO SEU BACK-END (mude quando publicar o Spring Boot)
-const API = '/api/solicitacoes'; // Para testes locais. Ao publicar, troque pela URL HTTPS do servidor.
+const API = '/api/solicitacoes'; // API no mesmo domínio do site, inclusive no Render.
 
-// Estas rotas são um exemplo. Confira os caminhos reais no seu Controller Java.
 const formulario = document.getElementById('form-orcamento');
 const resultadoEnvio = document.getElementById('resultado-envio');
 const consulta = document.getElementById('form-consulta');
@@ -12,6 +10,7 @@ function dadosDoFormulario(form) {
   return {
     nome: form.querySelector('[name="nome"]').value.trim(),
     email: form.querySelector('[name="email"]').value.trim(),
+    telefone: form.querySelector('[name="telefone"]').value.trim(),
     tipoServico: form.querySelector('[name="tipoServico"]').value,
     mensagem: form.querySelector('[name="mensagem"]').value.trim()
   };
@@ -51,6 +50,7 @@ consulta.addEventListener('submit', async function(evento) {
     const dados = await resposta.json();
     document.getElementById('editar-nome').value = dados.nome || '';
     document.getElementById('editar-email').value = dados.email || '';
+    document.getElementById('editar-telefone').value = dados.telefone || '';
     document.getElementById('editar-servico').value = dados.tipoServico || 'Consultoria';
     document.getElementById('editar-mensagem').value = dados.mensagem || '';
     resultadoConsulta.textContent = 'Solicitação encontrada! Você pode editar ou cancelar abaixo.';
@@ -65,6 +65,7 @@ edicao.addEventListener('submit', async function(evento) {
   const dados = {
     nome: document.getElementById('editar-nome').value.trim(),
     email: document.getElementById('editar-email').value.trim(),
+    telefone: document.getElementById('editar-telefone').value.trim(),
     tipoServico: document.getElementById('editar-servico').value,
     mensagem: document.getElementById('editar-mensagem').value.trim()
   };
@@ -90,3 +91,17 @@ document.getElementById('botao-cancelar').addEventListener('click', async functi
     consulta.reset();
   } catch (erro) { resultadoConsulta.textContent = erro.message; }
 });
+
+// Menu responsivo (versão atualizada do frontend).
+const botaoMenu = document.getElementById('menu-toggle');
+const menuPrincipal = document.getElementById('menu-principal');
+if (botaoMenu && menuPrincipal) {
+  botaoMenu.addEventListener('click', () => {
+    const aberto = menuPrincipal.classList.toggle('aberto');
+    botaoMenu.setAttribute('aria-expanded', String(aberto));
+  });
+  menuPrincipal.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menuPrincipal.classList.remove('aberto');
+    botaoMenu.setAttribute('aria-expanded', 'false');
+  }));
+}

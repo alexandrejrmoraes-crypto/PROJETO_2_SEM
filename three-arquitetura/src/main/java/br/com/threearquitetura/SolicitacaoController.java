@@ -22,20 +22,20 @@ public class SolicitacaoController {
     }
 
     // Dados recebidos do formulário (sem código e sem ID).
-    public record Dados(String nome, String email, String tipoServico, String mensagem) {}
+    public record Dados(String nome, String email, String telefone, String tipoServico, String mensagem) {}
     public record Codigo(String codigo) {}
 
     private void preencher(Solicitacao s, Dados d) {
-        if (d == null || vazio(d.nome()) || vazio(d.email()) || vazio(d.tipoServico()) || vazio(d.mensagem())) {
+        if (d == null || vazio(d.nome()) || vazio(d.email()) || vazio(d.telefone()) || vazio(d.tipoServico()) || vazio(d.mensagem())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Preencha todos os campos");
         }
-        if (d.nome().length() > 120 || d.email().length() > 180 || d.tipoServico().length() > 80 || d.mensagem().length() > 3000 || !d.email().contains("@")) {
+        if (d.nome().length() > 120 || d.email().length() > 180 || d.telefone().length() > 20 || d.tipoServico().length() > 80 || d.mensagem().length() > 3000 || !d.email().contains("@")) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados invalidos");
         }
         s.nome = d.nome().trim();
         s.email = d.email().trim();
+        s.telefone = d.telefone() == null ? "" : d.telefone().trim();
         s.tipoServico = d.tipoServico().trim();
-        s.mensagem = d.mensagem().trim();
     }
 
     private boolean vazio(String texto) {
@@ -68,8 +68,14 @@ public class SolicitacaoController {
 
     // Resposta publica: nunca devolvemos codigoHash.
     private Map<String, Object> resposta(Solicitacao s) {
-        return Map.of("id", s.id, "nome", s.nome, "email", s.email,
-                "tipoServico", s.tipoServico, "mensagem", s.mensagem);
+    return Map.of(
+        "id", s.id,
+        "nome", s.nome,
+        "email", s.email,
+        "telefone", s.telefone == null ? "" : s.telefone,
+        "tipoServico", s.tipoServico,
+        "mensagem", s.mensagem
+        );
     }
 
     // CREATE: cria pedido e devolve o codigo secreto UMA vez.

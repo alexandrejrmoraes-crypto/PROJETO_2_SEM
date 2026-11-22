@@ -9,6 +9,7 @@ public class Solicitacao {
     public Long id;
     public String nome;
     public String email;
+    public String telefone;
     public String tipoServico;
     @Column(length = 3000)
     public String mensagem;

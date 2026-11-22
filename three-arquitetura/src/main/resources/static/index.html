@@ -1,141 +1,159 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Three Arquitetura: projetos residenciais, comerciais e interiores.">
-  <title>Three Arquitetura</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Three Arquitetura: projetos residenciais, comerciais e interiores." name="description"/>
+<title>Three Arquitetura</title>
+<link href="style.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
 </head>
 <body>
-  <header class="cabecalho" id="inicio">
-    <div class="largura menu">
-      <a class="marca" href="#inicio">THREE <span>ARQUITETURA</span></a>
-      <nav aria-label="Menu principal">
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#orcamento">Orçamento</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="apresentacao">
-      <div class="largura apresentacao-conteudo">
-        <p class="subtitulo">ARQUITETURA E DESIGN</p>
-        <h1>Three Arquitetura</h1>
-        <h2>Projetamos espaços que inspiram, acolhem e transformam.</h2>
-        <p>Unimos criatividade, funcionalidade e sofisticação para criar ambientes únicos, pensados para cada cliente.</p>
-        <a class="botao" href="#projetos">Conheça nossos projetos</a>
-      </div>
-    </section>
-
-    <section class="secao largura" id="sobre">
-      <p class="subtitulo">NOSSO ESCRITÓRIO</p>
-      <h2>Sobre a Three Arquitetura</h2>
-      <p>Somos um escritório de arquitetura dedicado a transformar ideias em espaços únicos, modernos e funcionais. Desenvolvemos projetos personalizados, valorizando cada detalhe e as necessidades de nossos clientes.</p>
-      <h3>Quem está por trás da Three?</h3>
-      <p><strong>Arielen Oliveira da Silva</strong> e <strong>Michelle Antunes Reis</strong>, sócias e fundadoras da Three Arquitetura.</p>
-      <p>Nosso objetivo é criar ambientes que unem beleza, conforto e funcionalidade.</p>
-    </section>
-
-    <section class="secao fundo-claro" id="servicos">
-      <div class="largura">
-        <p class="subtitulo">O QUE FAZEMOS</p>
-        <h2>Nossos serviços</h2>
-        <div class="grade servicos">
-          <article class="cartao"><h3>Projetos residenciais</h3><p>Projetos para casas e apartamentos.</p></article>
-          <article class="cartao"><h3>Projetos comerciais</h3><p>Espaços comerciais modernos e funcionais.</p></article>
-          <article class="cartao"><h3>Design de interiores</h3><p>Ambientes planejados com conforto e beleza.</p></article>
-          <article class="cartao"><h3>Reformas</h3><p>Transformação e renovação de ambientes.</p></article>
-          <article class="cartao"><h3>Consultoria</h3><p>Orientação para seus projetos arquitetônicos.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao largura" id="projetos">
-      <p class="subtitulo">PORTFÓLIO</p>
-      <h2>Nossos projetos</h2>
-      <p>Conheça alguns dos projetos realizados pelo nosso escritório.</p>
-      <div class="grade galeria">
-        <article class="projeto"><img src="https://placehold.co/600x400/e9e2d8/4e493f?text=Projeto+residencial" alt="Imagem ilustrativa de projeto residencial"><h3>Projeto residencial</h3></article>
-        <article class="projeto"><img src="https://placehold.co/600x400/e9e2d8/4e493f?text=Design+de+interiores" alt="Imagem ilustrativa de design de interiores"><h3>Design de interiores</h3></article>
-        <article class="projeto"><img src="https://placehold.co/600x400/e9e2d8/4e493f?text=Projeto+comercial" alt="Imagem ilustrativa de projeto comercial"><h3>Projeto comercial</h3></article>
-      </div>
-      <p class="observacao">Imagens ilustrativas. Substitua pelas fotos autorizadas dos projetos do escritório.</p>
-    </section>
-
-    <section class="secao fundo-claro" id="orcamento">
-      <div class="largura">
-        <p class="subtitulo">FALE SOBRE SEU PROJETO</p>
-        <h2>Solicite um orçamento</h2>
-        <p>Preencha os campos abaixo para enviar sua solicitação.</p>
-        <div class="duas-colunas">
-          <form id="form-orcamento" class="cartao formulario">
-            <label for="nome">Seu nome</label>
-            <input id="nome" name="nome" type="text" maxlength="120" required>
-            <label for="email">Seu e-mail</label>
-            <input id="email" name="email" type="email" maxlength="180" required>
-            <label for="tipoServico">Tipo de serviço</label>
-            <select id="tipoServico" name="tipoServico" required>
-              <option value="">Selecione um serviço</option>
-              <option>Projetos residenciais</option>
-              <option>Projetos comerciais</option>
-              <option>Design de interiores</option>
-              <option>Reformas</option>
-              <option>Consultoria</option>
-            </select>
-            <label for="mensagem">Conte sobre seu projeto</label>
-            <textarea id="mensagem" name="mensagem" rows="5" maxlength="2000" required></textarea>
-            <button class="botao" type="submit">Enviar solicitação</button>
-            <p id="resultado-envio" class="resultado" role="status" aria-live="polite"></p>
-          </form>
-          <div class="cartao painel-consulta">
-            <h3>Já enviou uma solicitação?</h3>
-            <p>Digite o código recebido para consultar, editar ou cancelar seu pedido.</p>
-            <form id="form-consulta" class="formulario">
-              <label for="codigo">Seu código secreto</label>
-              <input id="codigo" name="codigo" type="password" autocomplete="off" required>
-              <button class="botao botao-secundario" type="submit">Consultar solicitação</button>
-            </form>
-            <p id="resultado-consulta" class="resultado" role="status" aria-live="polite"></p>
-            <form id="form-edicao" class="formulario escondido">
-              <h3>Editar solicitação</h3>
-              <label for="editar-nome">Nome</label>
-              <input id="editar-nome" required>
-              <label for="editar-email">E-mail</label>
-              <input id="editar-email" type="email" required>
-              <label for="editar-servico">Tipo de serviço</label>
-              <select id="editar-servico" required>
-                <option>Projetos residenciais</option><option>Projetos comerciais</option>
-                <option>Design de interiores</option><option>Reformas</option><option>Consultoria</option>
-              </select>
-              <label for="editar-mensagem">Mensagem</label>
-              <textarea id="editar-mensagem" rows="4" required></textarea>
-              <button class="botao" type="submit">Salvar alterações</button>
-              <button class="botao botao-perigo" id="botao-cancelar" type="button">Cancelar solicitação</button>
-            </form>
-          </div>
-        </div>
-        <p class="observacao">O envio e a consulta precisam do back-end Spring Boot funcionando. Não use dados pessoais reais durante os testes.</p>
-      </div>
-    </section>
-
-    <section class="secao largura" id="contato">
-      <p class="subtitulo">CONTATO</p>
-      <h2>Entre em contato</h2>
-      <p>Escolha com qual das nossas sócias deseja conversar:</p>
-      <div class="grade contatos">
-        <div class="cartao"><h3>Arielen Oliveira da Silva</h3><a class="botao botao-secundario" href="https://wa.me/5511986293683" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a></div>
-        <div class="cartao"><h3>Michelle Antunes Reis</h3><a class="botao botao-secundario" href="https://wa.me/5511984336070" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a></div>
-      </div>
-      <p>Instagram: <a href="https://www.instagram.com/three.arquitetura_/" target="_blank" rel="noopener noreferrer">@three.arquitetura_</a></p>
-    </section>
-  </main>
-  <footer><div class="largura">© Three Arquitetura — Arquitetura e Design</div></footer>
+<header class="cabecalho" id="inicio">
+<div class="largura menu">
+<a class="marca" href="#inicio"><img alt="Logo Three Arquitetura" class="logo-imagem" src="Logo_Three_Arquitetura.png"/></a>
+<button aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" id="menu-toggle" type="button">☰</button><nav aria-label="Menu principal" id="menu-principal">
+<a href="#inicio">Início</a>
+<a href="#sobre">Sobre nós</a>
+<a href="#servicos">Serviços</a>
+<a href="#projetos">Projetos</a>
+<a href="#orcamento">Orçamento</a>
+<a href="#contato">Contato</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="apresentacao">
+<div class="largura apresentacao-conteudo">
+<p class="subtitulo">ARQUITETURA E DESIGN</p>
+<h1>Three Arquitetura</h1>
+<h2>Projetamos espaços que inspiram, acolhem e transformam.</h2>
+<p>Unimos criatividade, funcionalidade e sofisticação para criar ambientes únicos, pensados para cada cliente.</p>
+<a class="botao" href="#projetos">Conheça nossos projetos</a>
+</div>
+</section>
+<section class="secao largura" id="sobre">
+<p class="subtitulo">NOSSO ESCRITÓRIO</p>
+<h2>Sobre a Three Arquitetura</h2>
+<p>Somos um escritório de arquitetura dedicado a transformar ideias em espaços únicos, modernos e funcionais. Desenvolvemos projetos personalizados, valorizando cada detalhe e as necessidades de nossos clientes.</p>
+<h3>Quem está por trás da Three?</h3>
+<p><strong>Arielen Oliveira da Silva</strong> e <strong>Michelle Antunes Reis</strong>, sócias e fundadoras da Three Arquitetura.</p>
+<p>Nosso objetivo é criar ambientes que unem beleza, conforto e funcionalidade.</p>
+</section>
+<section class="secao fundo-claro" id="servicos">
+<div class="largura">
+<p class="subtitulo">O QUE FAZEMOS</p>
+<h2>Nossos serviços</h2>
+<div class="grade servicos">
+<article class="cartao"><h3>Projetos residenciais</h3><p>Projetos para casas e apartamentos.</p></article>
+<article class="cartao"><h3>Projetos comerciais</h3><p>Espaços comerciais modernos e funcionais.</p></article>
+<article class="cartao"><h3>Design de interiores</h3><p>Ambientes planejados com conforto e beleza.</p></article>
+<article class="cartao"><h3>Reformas</h3><p>Transformação e renovação de ambientes.</p></article>
+<article class="cartao"><h3>Consultoria</h3><p>Orientação para seus projetos arquitetônicos.</p></article>
+</div>
+</div>
+</section>
+<section class="secao largura" id="projetos">
+<p class="subtitulo">PORTFÓLIO</p>
+<h2>Nossos projetos</h2>
+<p>Conheça alguns dos projetos realizados pelo nosso escritório.</p>
+<div class="grade galeria">
+<article class="projeto"><img alt="Imagem ilustrativa de projeto residencial" src="https://placehold.co/600x400/e9e2d8/4e493f?text=Projeto+residencial"/><h3>Projeto residencial</h3></article>
+<article class="projeto"><img alt="Imagem ilustrativa de design de interiores" src="https://placehold.co/600x400/e9e2d8/4e493f?text=Design+de+interiores"/><h3>Design de interiores</h3></article>
+<article class="projeto"><img alt="Imagem ilustrativa de projeto comercial" src="https://placehold.co/600x400/e9e2d8/4e493f?text=Projeto+comercial"/><h3>Projeto comercial</h3></article>
+</div>
+<p class="observacao">Imagens ilustrativas. Substitua pelas fotos autorizadas dos projetos do escritório.</p>
+</section>
+<section class="secao fundo-claro" id="orcamento">
+<div class="largura">
+<p class="subtitulo">FALE SOBRE SEU PROJETO</p>
+<h2>Solicite um orçamento</h2>
+<p>Preencha os campos abaixo para enviar sua solicitação.</p>
+<div class="duas-colunas">
+<form class="cartao formulario" id="form-orcamento">
+<label for="nome">Seu nome</label>
+<input id="nome" maxlength="120" name="nome" required="" type="text"/>
+<label for="email">Seu e-mail</label>
+<input id="email" maxlength="180" name="email" required="" type="email"/>
+<label for="telefone">Telefone / WhatsApp</label>
+<input id="telefone" name="telefone" type="tel" maxlength="20" autocomplete="tel" placeholder="(11) 99999-9999" required/>
+<label for="tipoServico">Tipo de serviço</label>
+<select id="tipoServico" name="tipoServico" required="">
+<option value="">Selecione um serviço</option>
+<option>Projetos residenciais</option>
+<option>Projetos comerciais</option>
+<option>Design de interiores</option>
+<option>Reformas</option>
+<option>Consultoria</option>
+</select>
+<label for="mensagem">Conte sobre seu projeto</label>
+<textarea id="mensagem" maxlength="2000" name="mensagem" required="" rows="5"></textarea>
+<button class="botao" type="submit">Enviar solicitação</button>
+<p aria-live="polite" class="resultado" id="resultado-envio" role="status"></p>
+</form>
+<div class="cartao painel-consulta">
+<h3>Já enviou uma solicitação?</h3>
+<p>Digite o código recebido para consultar, editar ou cancelar seu pedido.</p>
+<form class="formulario" id="form-consulta">
+<label for="codigo">Seu código secreto</label>
+<input autocomplete="off" id="codigo" name="codigo" required="" type="password"/>
+<button class="botao botao-secundario" type="submit">Consultar solicitação</button>
+</form>
+<p aria-live="polite" class="resultado" id="resultado-consulta" role="status"></p>
+<form class="formulario escondido" id="form-edicao">
+<h3>Editar solicitação</h3>
+<label for="editar-nome">Nome</label>
+<input id="editar-nome" required=""/>
+<label for="editar-email">E-mail</label>
+<input id="editar-email" required="" type="email"/>
+<label for="editar-telefone">Telefone / WhatsApp</label>
+<input id="editar-telefone" type="tel" maxlength="20" autocomplete="tel" required/>
+<label for="editar-servico">Tipo de serviço</label>
+<select id="editar-servico" required="">
+<option>Projetos residenciais</option><option>Projetos comerciais</option>
+<option>Design de interiores</option><option>Reformas</option><option>Consultoria</option>
+</select>
+<label for="editar-mensagem">Mensagem</label>
+<textarea id="editar-mensagem" required="" rows="4"></textarea>
+<button class="botao" type="submit">Salvar alterações</button>
+<button class="botao botao-perigo" id="botao-cancelar" type="button">Cancelar solicitação</button>
+</form>
+</div>
+</div>
+<p class="observacao">As solicitações são armazenadas no banco de dados. O envio automático por e-mail ainda não está configurado. Guarde seu código secreto para consultar, editar ou cancelar.</p>
+</div>
+</section>
+<section class="secao largura" id="contato">
+<p class="subtitulo">CONTATO</p>
+<h2>Entre em contato</h2>
+<p>Escolha com qual das nossas sócias deseja conversar:</p>
+<div class="grade contatos">
+<div class="cartao"><h3>Arielen Oliveira da Silva</h3><a class="botao botao-secundario" href="https://wa.me/5511986293683" rel="noopener noreferrer" target="_blank">Falar pelo WhatsApp</a></div>
+<div class="cartao"><h3>Michelle Antunes Reis</h3><a class="botao botao-secundario" href="https://wa.me/5511984336070" rel="noopener noreferrer" target="_blank">Falar pelo WhatsApp</a></div>
+</div>
+<p>Instagram: <a href="https://www.instagram.com/three.arquitetura_/" rel="noopener noreferrer" target="_blank">@three.arquitetura_</a></p>
+</section>
+<section class="secao largura perguntas" id="perguntas">
+<h2>Perguntas Frequentes</h2>
+<p>Confira algumas dúvidas comuns sobre nossos serviços.</p>
+<details>
+<summary>Quais serviços a Three Arquitetura oferece?</summary>
+<p>Oferecemos projetos residenciais e comerciais, design de interiores, reformas e consultoria.</p>
+</details>
+<details>
+<summary>Como posso solicitar um orçamento?</summary>
+<p>Você pode preencher o formulário de solicitação de orçamento disponível em nosso site ou entrar em contato diretamente pelo WhatsApp.</p>
+</details>
+<details>
+<summary>A Three Arquitetura realiza projetos residenciais e comerciais?</summary>
+<p>Sim! Desenvolvemos projetos para ambientes residenciais e comerciais, de acordo com as necessidades de cada cliente.</p>
+</details>
+<details>
+<summary>Como posso entrar em contato com a equipe?</summary>
+<p>Você pode entrar em contato pelos botões de WhatsApp disponíveis no site ou pelo nosso Instagram @three.arquitetura_.</p>
+</details>
+</section></main>
+<footer><div class="largura">© Three Arquitetura — Arquitetura e Design</div></footer>
 </body>
 </html>
