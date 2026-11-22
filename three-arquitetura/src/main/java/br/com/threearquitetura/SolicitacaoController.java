@@ -26,7 +26,6 @@ public class SolicitacaoController {
     this.notificacaoEmail = notificacaoEmail;
 }
 
-    // Dados recebidos do formulário (sem código e sem ID).
     public record Dados(String nome, String email, String telefone, String tipoServico, String mensagem) {}
     public record Codigo(String codigo) {}
 
@@ -72,7 +71,7 @@ public class SolicitacaoController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Solicitacao nao encontrada"));
     }
 
-    // Resposta publica: nunca devolvemos codigoHash.
+
     private Map<String, Object> resposta(Solicitacao s) {
     return Map.of(
         "id", s.id,
@@ -84,13 +83,34 @@ public class SolicitacaoController {
         );
     }
 
-    // READ: cliente informa seu codigo no corpo da requisicao.
-    @PostMapping("/consultar")
+    
+    
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Map<String, Object> criar(@RequestBody Dados dados) {
+        Solicitacao s = new Solicitacao();
+        preencher(s, dados);
+
+        String codigo = gerarCodigo();
+        s.codigoHash = hash(codigo);
+
+        banco.save(s);
+
+     
+        notificacaoEmail.avisarNovoOrcamento(s);
+
+        return Map.of(
+            "id", s.id,
+            "codigoSecreto", codigo
+        );
+    }
+
+
     public Map<String, Object> consultar(@RequestBody Codigo pedido) {
         return resposta(localizar(pedido.codigo()));
     }
 
-    // UPDATE: codigo enviado no cabecalho X-Codigo-Secreto.
+
     @PutMapping
     public Map<String, Object> atualizar(@RequestHeader("X-Codigo-Secreto") String codigo,
                                          @RequestBody Dados dados) {
@@ -99,7 +119,7 @@ public class SolicitacaoController {
         return resposta(banco.save(s));
     }
 
-    // DELETE: exclui somente a solicitacao autorizada pelo codigo.
+
     @PostMapping("/cancelar")
     public Map<String, String> cancelar(@RequestBody Codigo pedido) {
         banco.delete(localizar(pedido.codigo()));
