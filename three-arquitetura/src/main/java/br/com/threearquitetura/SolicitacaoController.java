@@ -105,7 +105,7 @@ public class SolicitacaoController {
         );
     }
 
-
+    @PostMapping("/consultar")
     public Map<String, Object> consultar(@RequestBody Codigo pedido) {
         return resposta(localizar(pedido.codigo()));
     }
