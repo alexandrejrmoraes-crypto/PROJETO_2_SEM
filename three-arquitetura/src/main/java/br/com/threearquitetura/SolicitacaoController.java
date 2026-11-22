@@ -15,11 +15,16 @@ import java.util.Map;
 @RequestMapping("/api/solicitacoes")
 public class SolicitacaoController {
     private final SolicitacaoRepository banco;
+    private final NotificacaoEmailService notificacaoEmail;
     private final SecureRandom sorteador = new SecureRandom();
 
-    public SolicitacaoController(SolicitacaoRepository banco) {
-        this.banco = banco;
-    }
+    public SolicitacaoController(
+        SolicitacaoRepository banco,
+        NotificacaoEmailService notificacaoEmail) {
+
+    this.banco = banco;
+    this.notificacaoEmail = notificacaoEmail;
+}
 
     // Dados recebidos do formulário (sem código e sem ID).
     public record Dados(String nome, String email, String telefone, String tipoServico, String mensagem) {}
@@ -36,6 +41,7 @@ public class SolicitacaoController {
         s.email = d.email().trim();
         s.telefone = d.telefone() == null ? "" : d.telefone().trim();
         s.tipoServico = d.tipoServico().trim();
+        s.mensagem = d.mensagem().trim();
     }
 
     private boolean vazio(String texto) {
@@ -76,18 +82,6 @@ public class SolicitacaoController {
         "tipoServico", s.tipoServico,
         "mensagem", s.mensagem
         );
-    }
-
-    // CREATE: cria pedido e devolve o codigo secreto UMA vez.
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Map<String, Object> criar(@RequestBody Dados dados) {
-        Solicitacao s = new Solicitacao();
-        preencher(s, dados);
-        String codigo = gerarCodigo();
-        s.codigoHash = hash(codigo);
-        banco.save(s);
-        return Map.of("id", s.id, "codigoSecreto", codigo);
     }
 
     // READ: cliente informa seu codigo no corpo da requisicao.
