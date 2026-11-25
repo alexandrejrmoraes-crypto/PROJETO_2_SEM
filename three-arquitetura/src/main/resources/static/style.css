@@ -237,3 +237,12 @@ footer { background:var(--escuro); color:white; padding:25px 0; font-size:14px; 
 #projetos .galeria .projeto { flex: 0 0 100%; max-width: 100%; margin: 0; }
 #projetos .projeto img { width: 100%; height: clamp(160px, 32vw, 320px); object-fit: contain; object-position: center; }
 @media (max-width: 600px) { #projetos .carrossel { gap: 5px; } #projetos .seta { width: 30px; height: 30px; } }
+
+/* Carrossel: uma prancha inteira por vez, sem transbordamento. */
+#projetos .carrossel { display:flex; align-items:center; width:100%; gap:10px; }
+#projetos .janela-carrossel { flex:1 1 0; min-width:0; overflow:hidden; }
+#projetos .galeria { display:flex; flex-wrap:nowrap; width:100%; gap:0; transition:transform .5s ease; }
+#projetos .galeria .projeto { flex:0 0 100%; width:100%; min-width:0; }
+#projetos .projeto img { height:clamp(160px, 32vw, 320px); object-fit:contain; object-position:center; transform:none; }
+#projetos .seta { flex:none; display:grid; place-items:center; background:#292824; color:white; border:0; border-radius:50%; width:40px; height:40px; cursor:pointer; }
+@media(max-width:600px) { #projetos .carrossel {gap:5px;} #projetos .seta {width:30px;height:30px;} }
