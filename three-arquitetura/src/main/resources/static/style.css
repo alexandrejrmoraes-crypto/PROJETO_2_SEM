@@ -229,3 +229,11 @@ footer { background:var(--escuro); color:white; padding:25px 0; font-size:14px; 
 #projetos .projeto { min-width:0; cursor:pointer; }
 #projetos .projeto img { transform:none; object-fit:contain; aspect-ratio:auto; height:230px; }
 #projetos .fotos-comerciais img { object-fit:contain; cursor:zoom-in; }
+
+/* Ajuste localizado do carrossel */
+#projetos .carrossel { max-width: 900px; margin: 30px auto; }
+#projetos .janela-carrossel { width: 0; overflow: hidden; }
+#projetos .galeria { width: 100%; gap: 0; }
+#projetos .galeria .projeto { flex: 0 0 100%; max-width: 100%; margin: 0; }
+#projetos .projeto img { width: 100%; height: clamp(160px, 32vw, 320px); object-fit: contain; object-position: center; }
+@media (max-width: 600px) { #projetos .carrossel { gap: 5px; } #projetos .seta { width: 30px; height: 30px; } }
