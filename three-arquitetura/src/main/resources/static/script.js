@@ -105,3 +105,31 @@ if (botaoMenu && menuPrincipal) {
     botaoMenu.setAttribute('aria-expanded', 'false');
   }));
 }
+
+// Galerias independentes e ampliação centralizada.
+const botoesProjeto = document.querySelectorAll('.abrir-projeto');
+const paineisProjeto = document.querySelectorAll('.painel-galeria');
+function fecharProjetos() {
+  paineisProjeto.forEach(p => p.hidden = true);
+  botoesProjeto.forEach(b => b.setAttribute('aria-expanded', 'false'));
+}
+botoesProjeto.forEach(botao => botao.addEventListener('click', () => {
+  const painel = document.getElementById('galeria-' + botao.dataset.galeria);
+  const abrir = painel.hidden;
+  fecharProjetos();
+  if (abrir) { painel.hidden = false; botao.setAttribute('aria-expanded', 'true'); painel.scrollIntoView({block:'start'}); }
+}));
+document.querySelectorAll('.fechar-projeto').forEach(b => b.addEventListener('click', () => {
+  const ativo = document.querySelector('.abrir-projeto[aria-expanded="true"]');
+  fecharProjetos();
+  if (ativo) ativo.focus();
+}));
+const dialogFoto = document.getElementById('foto-ampliada');
+const imagemGrande = document.getElementById('imagem-grande');
+document.querySelectorAll('.foto-projeto').forEach(b => b.addEventListener('click', () => {
+  const foto = b.querySelector('img');
+  imagemGrande.src = foto.src; imagemGrande.alt = foto.alt;
+  dialogFoto.showModal();
+}));
+document.getElementById('fechar-foto').addEventListener('click', () => dialogFoto.close());
+dialogFoto.addEventListener('click', e => { if (e.target === dialogFoto) dialogFoto.close(); });
