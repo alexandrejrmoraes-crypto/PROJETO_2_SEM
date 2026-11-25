@@ -106,30 +106,22 @@ if (botaoMenu && menuPrincipal) {
   }));
 }
 
-// Galerias independentes e ampliação centralizada.
-const botoesProjeto = document.querySelectorAll('.abrir-projeto');
-const paineisProjeto = document.querySelectorAll('.painel-galeria');
-function fecharProjetos() {
-  paineisProjeto.forEach(p => p.hidden = true);
-  botoesProjeto.forEach(b => b.setAttribute('aria-expanded', 'false'));
-}
-botoesProjeto.forEach(botao => botao.addEventListener('click', () => {
-  const painel = document.getElementById('galeria-' + botao.dataset.galeria);
-  const abrir = painel.hidden;
-  fecharProjetos();
-  if (abrir) { painel.hidden = false; botao.setAttribute('aria-expanded', 'true'); painel.scrollIntoView({block:'start'}); }
-}));
-document.querySelectorAll('.fechar-projeto').forEach(b => b.addEventListener('click', () => {
-  const ativo = document.querySelector('.abrir-projeto[aria-expanded="true"]');
-  fecharProjetos();
-  if (ativo) ativo.focus();
-}));
-const dialogFoto = document.getElementById('foto-ampliada');
-const imagemGrande = document.getElementById('imagem-grande');
-document.querySelectorAll('.foto-projeto').forEach(b => b.addEventListener('click', () => {
-  const foto = b.querySelector('img');
-  imagemGrande.src = foto.src; imagemGrande.alt = foto.alt;
-  dialogFoto.showModal();
-}));
-document.getElementById('fechar-foto').addEventListener('click', () => dialogFoto.close());
-dialogFoto.addEventListener('click', e => { if (e.target === dialogFoto) dialogFoto.close(); });
+// Navegação do portfólio, independente do CRUD.
+(() => {
+ const trilho = document.querySelector('.trilho-projetos');
+ const slides = [...trilho.children];
+ let atual = 0;
+ function mostrar(i) {
+  atual = (i + slides.length) % slides.length;
+  trilho.style.transform = `translateX(-${atual * 100}%)`;
+  slides.forEach((slide, n) => { slide.inert = n !== atual; });
+  document.getElementById('posicao-projeto').textContent = `${atual+1} / ${slides.length}`;
+ }
+ document.getElementById('anterior-projeto').addEventListener('click', () => mostrar(atual-1));
+ document.getElementById('proximo-projeto').addEventListener('click', () => mostrar(atual+1));
+ mostrar(0);
+ document.querySelectorAll('.abrir-projeto').forEach(b => b.addEventListener('click', () => document.getElementById('galeria-'+b.dataset.galeria).showModal()));
+ const ampliada = document.getElementById('foto-ampliada');
+ document.querySelectorAll('.foto-projeto').forEach(b => b.addEventListener('click', () => { const img = b.querySelector('img'); ampliada.querySelector('img').src = img.src; ampliada.querySelector('img').alt = img.alt; ampliada.showModal(); }));
+ document.querySelectorAll('.fechar-projeto').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+})();

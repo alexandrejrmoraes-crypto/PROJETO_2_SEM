@@ -11,7 +11,7 @@ a { color:inherit; }
 nav { display:flex; flex-wrap:wrap; gap:15px; }
 nav a { text-decoration:none; font-size:14px; }
 nav a:hover, a:hover { color:var(--verde); }
-.apresentacao { background:linear-gradient(120deg,rgba(33,39,33,.87),rgba(55,62,49,.76)),url('imagens/interiores-1.webp') center/cover; color:white; }
+.apresentacao { background:linear-gradient(120deg,rgba(33,39,33,.87),rgba(55,62,49,.76)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80') center/cover; color:white; }
 .apresentacao-conteudo { padding-top:100px; padding-bottom:110px; max-width:1100px; }
 .apresentacao h1 { font-size:clamp(38px,6vw,70px); margin:5px 0 12px; line-height:1.15; }
 .apresentacao h2 { font-size:clamp(21px,3vw,30px); font-weight:normal; max-width:650px; }
@@ -61,22 +61,22 @@ footer { background:var(--escuro); color:white; padding:25px 0; font-size:14px; 
   .logo-imagem { width: 160px; }
 }
 
-/* Portfólio responsivo: fotos inteiras, sem zoom ou deslocamento. */
-[hidden] { display:none !important; }
-.galeria { align-items:stretch; }
-.abrir-projeto, .foto-projeto { display:block; width:100%; border:0; padding:0; background:white; color:inherit; font:inherit; cursor:pointer; }
-.abrir-projeto { height:100%; text-align:center; padding-bottom:16px; }
-.projeto img, .foto-projeto img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:contain; object-position:center; background:#e9e2d8; }
-.abrir-projeto h3 { margin:8px 0 0; padding:6px 12px; }
-.abrir-projeto span { color:#48543f; font-size:14px; }
-.painel-galeria { padding:20px; border:1px solid var(--borda); border-radius:12px; margin:24px 0; background:white; }
-.galeria-topo { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
-.fotos-projetos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-.foto-projeto { overflow:hidden; border-radius:8px; }
-#foto-ampliada { border:0; border-radius:10px; padding:48px 12px 12px; background:#222; max-width:94vw; max-height:94vh; max-height:94dvh; overflow:auto; }
-#foto-ampliada::backdrop { background:rgba(0,0,0,.85); }
-#imagem-grande { display:block; max-width:100%; max-height:78vh; max-height:78dvh; width:auto; height:auto; object-fit:contain; margin:auto; }
-#fechar-foto { position:absolute; top:6px; right:10px; border:0; border-radius:50%; width:36px; height:36px; font-size:26px; cursor:pointer; }
-button:focus-visible { outline:3px solid #849074; outline-offset:3px; }
-@media(max-width:760px) { .fotos-projetos { grid-template-columns:repeat(2,minmax(0,1fr)); } .painel-galeria { padding:12px; } .duas-colunas > * { min-width:0; } }
-@media(max-width:420px) { .fotos-projetos { grid-template-columns:1fr; } }
+/* Carrossel centralizado */
+.carrossel-projetos{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;gap:10px;align-items:center;max-width:960px;margin:30px auto 0}
+.janela-projetos{min-width:0;overflow:hidden;border-radius:8px}
+.trilho-projetos{display:flex;gap:0;transition:transform .35s ease}
+.slide-projeto{flex:0 0 100%;min-width:0;width:100%}
+.abrir-projeto{display:block;width:100%;border:0;background:white;color:inherit;padding:0 0 15px;font:inherit;cursor:pointer;text-align:center}
+.slide-projeto img{width:100%;height:clamp(170px,48vw,480px);aspect-ratio:auto;object-fit:contain;object-position:center;background:#f5f2ec}
+.slide-projeto h3{margin:8px 0 0;padding:5px}
+.seta-projeto{width:40px;height:40px;border:0;border-radius:50%;background:#292824;color:white;font-size:18px;cursor:pointer}
+#posicao-projeto{text-align:center;margin:8px 0;color:var(--verde)}
+.galeria-dialogo,#foto-ampliada{border:1px solid var(--borda);border-radius:12px;width:min(94vw,1000px);max-height:90vh;padding:20px;color:var(--escuro)}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.fechar-projeto{display:block;margin:0 0 12px auto;padding:10px;border:0;border-radius:6px;background:#292824;color:white;cursor:pointer}
+.fotos-projeto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:12px}
+.foto-projeto{border:0;background:#f5f2ec;padding:0;cursor:zoom-in}
+.foto-projeto img{display:block;width:100%;height:200px;object-fit:contain}
+#foto-ampliada img{display:block;max-width:100%;max-height:75vh;margin:auto;object-fit:contain}
+@media(max-width:600px){.carrossel-projetos{grid-template-columns:30px minmax(0,1fr) 30px;gap:5px}.seta-projeto{width:30px;height:30px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.trilho-projetos{transition:none}}
