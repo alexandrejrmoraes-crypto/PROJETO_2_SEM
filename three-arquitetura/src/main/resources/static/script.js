@@ -106,22 +106,107 @@ if (botaoMenu && menuPrincipal) {
   }));
 }
 
-// Navegação do portfólio, independente do CRUD.
-(() => {
- const trilho = document.querySelector('.trilho-projetos');
- const slides = [...trilho.children];
- let atual = 0;
- function mostrar(i) {
-  atual = (i + slides.length) % slides.length;
-  trilho.style.transform = `translateX(-${atual * 100}%)`;
-  slides.forEach((slide, n) => { slide.inert = n !== atual; });
-  document.getElementById('posicao-projeto').textContent = `${atual+1} / ${slides.length}`;
- }
- document.getElementById('anterior-projeto').addEventListener('click', () => mostrar(atual-1));
- document.getElementById('proximo-projeto').addEventListener('click', () => mostrar(atual+1));
- mostrar(0);
- document.querySelectorAll('.abrir-projeto').forEach(b => b.addEventListener('click', () => document.getElementById('galeria-'+b.dataset.galeria).showModal()));
- const ampliada = document.getElementById('foto-ampliada');
- document.querySelectorAll('.foto-projeto').forEach(b => b.addEventListener('click', () => { const img = b.querySelector('img'); ampliada.querySelector('img').src = img.src; ampliada.querySelector('img').alt = img.alt; ampliada.showModal(); }));
- document.querySelectorAll('.fechar-projeto').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+;(() => {
+
+    const fotosComerciais = document.querySelectorAll(".fotos-comerciais img");
+const fotoAmpliada = document.getElementById("foto-ampliada");
+const imagemGrande = document.getElementById("imagem-grande");
+const fecharFoto = document.getElementById("fechar-foto");
+
+fotosComerciais.forEach(function(foto) {
+    foto.addEventListener("click", function() {
+        imagemGrande.src = foto.src;
+        fotoAmpliada.classList.add("aberta");
+    });
+});
+
+fecharFoto.addEventListener("click", function() {
+    fotoAmpliada.classList.remove("aberta");
+});
+    const projetoComercial = document.getElementById("projeto-comercial");
+const galeriaComercial = document.getElementById("galeria-comercial");
+const fecharGaleria = document.getElementById("fechar-galeria");
+
+projetoComercial.addEventListener("click", function() {
+    galeriaComercial.classList.add("aberta");
+
+    galeriaComercial.scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+fecharGaleria.addEventListener("click", function() {
+    galeriaComercial.classList.remove("aberta");
+});
+    const galeria = document.getElementById("galeria");
+const anterior = document.getElementById("anterior");
+const proximo = document.getElementById("proximo");
+
+let indiceAtual = 0;
+const totalProjetos = galeria.children.length;
+
+function atualizarCarrossel() {
+    galeria.style.transform =
+        "translateX(-" + (indiceAtual * 100) + "%)";
+}
+anterior.addEventListener("click", function() {
+    indiceAtual--;
+
+    if (indiceAtual < 0) {
+        indiceAtual = totalProjetos - 1;
+    }
+
+    atualizarCarrossel();
+});
+
+proximo.addEventListener("click", function() {
+    indiceAtual++;
+
+    if (indiceAtual >= totalProjetos) {
+        indiceAtual = 0;
+    }
+
+    atualizarCarrossel();
+});
+
+setInterval(function() {
+    indiceAtual++;
+
+    if (indiceAtual >= totalProjetos) {
+        indiceAtual = 0;
+    }
+
+    atualizarCarrossel();
+}, 4000);
+    const projetoResidencial = document.getElementById("projeto-residencial");
+const galeriaResidencial = document.getElementById("galeria-residencial");
+const fecharGaleriaResidencial = document.getElementById("fechar-galeria-residencial");
+
+projetoResidencial.addEventListener("click", function() {
+    galeriaResidencial.classList.add("aberta");
+
+    galeriaResidencial.scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+fecharGaleriaResidencial.addEventListener("click", function() {
+    galeriaResidencial.classList.remove("aberta");
+});
+    const projetoInteriores = document.getElementById("projeto-interiores");
+const galeriaInteriores = document.getElementById("galeria-interiores");
+const fecharGaleriaInteriores = document.getElementById("fechar-galeria-interiores");
+
+projetoInteriores.addEventListener("click", function() {
+    galeriaInteriores.classList.add("aberta");
+
+    galeriaInteriores.scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+fecharGaleriaInteriores.addEventListener("click", function() {
+    galeriaInteriores.classList.remove("aberta");
+});
+
 })();

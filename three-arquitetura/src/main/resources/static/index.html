@@ -55,10 +55,91 @@
 </div>
 </section>
 <section class="secao largura" id="projetos">
-<p class="subtitulo">PORTFÓLIO</p>
 <h2>Nossos projetos</h2>
-<p>Conheça alguns dos projetos realizados pelo nosso escritório.</p>
-<div class="carrossel-projetos"><button type="button" class="seta-projeto" id="anterior-projeto" aria-label="Projeto anterior">❮</button><div class="janela-projetos"><div class="trilho-projetos"><article class="projeto slide-projeto"><button type="button" class="abrir-projeto" data-galeria="residencial"><img src="imagens/residencial-1.webp" alt="Projeto residencial"><h3>Projeto residencial</h3><span>Ver 9 fotos</span></button></article><article class="projeto slide-projeto"><button type="button" class="abrir-projeto" data-galeria="interiores"><img src="imagens/interiores-1.webp" alt="Arquitetura de interiores"><h3>Arquitetura de interiores</h3><span>Ver 3 fotos</span></button></article><article class="projeto slide-projeto"><button type="button" class="abrir-projeto" data-galeria="comercial"><img src="imagens/comercial-1.webp" alt="Projeto comercial"><h3>Projeto comercial</h3><span>Ver 12 fotos</span></button></article></div></div><button type="button" class="seta-projeto" id="proximo-projeto" aria-label="Próximo projeto">❯</button></div><p id="posicao-projeto" aria-live="polite">1 / 3</p><dialog class="galeria-dialogo" id="galeria-residencial"><button type="button" class="fechar-projeto">Fechar ×</button><h2>Projeto residencial</h2><div class="fotos-projeto"><button type="button" class="foto-projeto" aria-label="Ampliar foto 1"><img loading="lazy" src="imagens/residencial-1.webp" alt="Projeto residencial — foto 1"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 2"><img loading="lazy" src="imagens/residencial-2.webp" alt="Projeto residencial — foto 2"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 3"><img loading="lazy" src="imagens/residencial-3.webp" alt="Projeto residencial — foto 3"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 4"><img loading="lazy" src="imagens/residencial-4.webp" alt="Projeto residencial — foto 4"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 5"><img loading="lazy" src="imagens/residencial-5.webp" alt="Projeto residencial — foto 5"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 6"><img loading="lazy" src="imagens/residencial-6.webp" alt="Projeto residencial — foto 6"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 7"><img loading="lazy" src="imagens/residencial-7.webp" alt="Projeto residencial — foto 7"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 8"><img loading="lazy" src="imagens/residencial-8.webp" alt="Projeto residencial — foto 8"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 9"><img loading="lazy" src="imagens/residencial-9.webp" alt="Projeto residencial — foto 9"></button></div></dialog><dialog class="galeria-dialogo" id="galeria-interiores"><button type="button" class="fechar-projeto">Fechar ×</button><h2>Arquitetura de interiores</h2><div class="fotos-projeto"><button type="button" class="foto-projeto" aria-label="Ampliar foto 1"><img loading="lazy" src="imagens/interiores-1.webp" alt="Arquitetura de interiores — foto 1"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 2"><img loading="lazy" src="imagens/interiores-2.webp" alt="Arquitetura de interiores — foto 2"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 3"><img loading="lazy" src="imagens/interiores-3.webp" alt="Arquitetura de interiores — foto 3"></button></div></dialog><dialog class="galeria-dialogo" id="galeria-comercial"><button type="button" class="fechar-projeto">Fechar ×</button><h2>Projeto comercial</h2><div class="fotos-projeto"><button type="button" class="foto-projeto" aria-label="Ampliar foto 1"><img loading="lazy" src="imagens/comercial-1.webp" alt="Projeto comercial — foto 1"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 2"><img loading="lazy" src="imagens/comercial-2.webp" alt="Projeto comercial — foto 2"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 3"><img loading="lazy" src="imagens/comercial-3.webp" alt="Projeto comercial — foto 3"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 4"><img loading="lazy" src="imagens/comercial-4.webp" alt="Projeto comercial — foto 4"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 5"><img loading="lazy" src="imagens/comercial-5.webp" alt="Projeto comercial — foto 5"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 6"><img loading="lazy" src="imagens/comercial-6.webp" alt="Projeto comercial — foto 6"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 7"><img loading="lazy" src="imagens/comercial-7.webp" alt="Projeto comercial — foto 7"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 8"><img loading="lazy" src="imagens/comercial-8.webp" alt="Projeto comercial — foto 8"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 9"><img loading="lazy" src="imagens/comercial-9.webp" alt="Projeto comercial — foto 9"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 10"><img loading="lazy" src="imagens/comercial-10.webp" alt="Projeto comercial — foto 10"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 11"><img loading="lazy" src="imagens/comercial-11.webp" alt="Projeto comercial — foto 11"></button><button type="button" class="foto-projeto" aria-label="Ampliar foto 12"><img loading="lazy" src="imagens/comercial-12.webp" alt="Projeto comercial — foto 12"></button></div></dialog><dialog id="foto-ampliada"><button type="button" class="fechar-projeto">Fechar ×</button><img alt="Foto ampliada"></dialog>
+    <p>Conheça alguns dos projetos realizados pelo nosso escritório.</p>
+   <div class="carrossel">
+    <button id="anterior" class="seta">❮</button>
+
+    <div class="janela-carrossel">
+        <div class="galeria" id="galeria">
+
+            <div class="projeto" id="projeto-residencial">
+                <img src="imagens/Residencia (1).webp" alt="Projeto residencial da Three Arquitetura">
+                <h3>Projeto residencial</h3>
+            </div>
+
+            <div class="projeto" id="projeto-interiores">
+                <img src="imagens/interiores (1).webp" alt="Projeto de interiores da Three Arquitetura">
+                <h3>Arquitetura de interiores</h3>
+            </div>
+
+            <div class="projeto" id="projeto-comercial">
+                <img src="imagens/1.webp" alt="Projeto comercial da Three Arquitetura">
+                <h3>Projeto comercial</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="proximo" class="seta">❯</button>
+</div>
+<div id="galeria-comercial" class="galeria-comercial">
+
+
+    <button id="fechar-galeria" class="fechar-galeria">✕</button>
+
+    <h2>Projeto Comercial</h2>
+
+    <div class="fotos-comerciais">
+        <img src="imagens/1.webp" alt="Projeto comercial 1">
+        <img src="imagens/2.webp" alt="Projeto comercial 2">
+        <img src="imagens/3.webp" alt="Projeto comercial 3">
+        <img src="imagens/4.webp" alt="Projeto comercial 4">
+        <img src="imagens/5.webp" alt="Projeto comercial 5">
+        <img src="imagens/6.webp" alt="Projeto comercial 6">
+        <img src="imagens/7.webp" alt="Projeto comercial 7">
+        <img src="imagens/8.webp" alt="Projeto comercial 8">
+        <img src="imagens/9.webp" alt="Projeto comercial 9">
+        <img src="imagens/10.webp" alt="Projeto comercial 10">
+        <img src="imagens/11.webp" alt="Projeto comercial 11">
+        <img src="imagens/12.webp" alt="Projeto comercial 12">
+    </div>
+</div>
+    <div id="galeria-residencial" class="galeria-comercial">
+
+    <button id="fechar-galeria-residencial" class="fechar-galeria">X</button>
+
+    <h2>Projeto Residencial</h2>
+
+    <div class="fotos-comerciais">
+        <img src="imagens/Residencia (1).webp" alt="Projeto residencial 1">
+        <img src="imagens/Residencia (2).webp" alt="Projeto residencial 2">
+        <img src="imagens/Residencia (3).webp" alt="Projeto residencial 3">
+        <img src="imagens/Residencia (4).webp" alt="Projeto residencial 4">
+        <img src="imagens/Residencia (5).webp" alt="Projeto residencial 5">
+        <img src="imagens/Residencia (6).webp" alt="Projeto residencial 6">
+        <img src="imagens/Residencia (7).webp" alt="Projeto residencial 7">
+        <img src="imagens/Residencia (8).webp" alt="Projeto residencial 8">
+        <img src="imagens/Residencia (9).webp" alt="Projeto residencial 9">
+    </div>
+</div>
+        <div id="galeria-interiores" class="galeria-comercial">
+
+    <button id="fechar-galeria-interiores" class="fechar-galeria">X</button>
+
+    <h2>Projeto de Interiores</h2>
+
+    <div class="fotos-comerciais">
+        <img src="imagens/interiores (1).webp" alt="Projeto de interiores 1">
+        <img src="imagens/interiores (2).webp" alt="Projeto de interiores 2">
+        <img src="imagens/interiores (3).webp" alt="Projeto de interiores 3">
+    </div>
+
+</div>
+    <div id="foto-ampliada" class="foto-ampliada">
+        <button id="fechar-foto">x</button>
+        <img id="imagem-grande" src="" alt="imagem ampliada do projeto">
+    </div>
 </section>
 <section class="secao fundo-claro" id="orcamento">
 <div class="largura">
